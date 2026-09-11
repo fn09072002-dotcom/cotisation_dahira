@@ -13,6 +13,8 @@ RUN a2dismod mpm_event mpm_worker mpm_prefork || true \
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
+WORKDIR /var/www
+
 COPY composer.json composer.lock ./
 
 RUN composer install --no-dev --optimize-autoloader --no-interaction
