@@ -8,10 +8,15 @@ RUN a2dismod mpm_event mpm_worker mpm_prefork || true \
               /etc/apache2/mods-enabled/mpm_prefork.* \
     && a2enmod mpm_prefork
 
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+COPY composer.json composer.lock ./
+
+RUN composer install --no-dev --optimize-autoloader --no-interaction
+
 COPY public/ /var/www/html/
 COPY app/ /var/www/app/
 COPY config/ /var/www/config/
-COPY vendor/ /var/www/vendor/
 
 COPY apache-start.sh /usr/local/bin/apache-start.sh
 RUN chmod +x /usr/local/bin/apache-start.sh
