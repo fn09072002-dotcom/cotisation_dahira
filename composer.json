@@ -1,0 +1,17 @@
+{
+    "name": "fatou/gestion-cotisations-association",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "fatou",
+            "email": "fn09072002@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.7"
+    }
+}
