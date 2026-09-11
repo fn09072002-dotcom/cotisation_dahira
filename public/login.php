@@ -6,7 +6,7 @@ use App\Models\Membre;
 use App\Core\Auth;
 
 $dotenv = Dotenv::createImmutable(__DIR__ . '/..');
-$dotenv->load();
+$dotenv->safeLoad();
 $config = require __DIR__ . '/../config/app.php';
 
 $erreur = '';

@@ -6,7 +6,7 @@ use App\Core\Auth;
 use App\Models\Membre;
 
 $dotenv = Dotenv::createImmutable(__DIR__ . '/..');
-$dotenv->load();
+$dotenv->safeLoad();
 
 if (!Auth::check() || !Auth::isAdmin()) {
     header('Location: /login.php');

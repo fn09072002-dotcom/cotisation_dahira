@@ -8,7 +8,7 @@ use App\Core\Database;
 
 
 $dotenv = Dotenv::createImmutable(__DIR__ . '/..');
-$dotenv->load();
+$dotenv->safeLoad();
 
 if (!Auth::check() || !Auth::isAdmin()) {
     header('Location: /login.php');
