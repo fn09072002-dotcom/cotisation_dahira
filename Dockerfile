@@ -8,8 +8,12 @@ RUN a2dismod mpm_event mpm_worker mpm_prefork || true \
               /etc/apache2/mods-enabled/mpm_prefork.* \
     && a2enmod mpm_prefork
 
-COPY apache-start.sh /usr/local/bin/apache-start.sh
+COPY public/ /var/www/html/
+COPY app/ /var/www/app/
+COPY config/ /var/www/config/
+COPY vendor/ /var/www/vendor/
 
+COPY apache-start.sh /usr/local/bin/apache-start.sh
 RUN chmod +x /usr/local/bin/apache-start.sh
 
 CMD ["/usr/local/bin/apache-start.sh"]
